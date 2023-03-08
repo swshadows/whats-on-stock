@@ -1,0 +1,78 @@
+@import "colors";
+@import "responsive";
+
+// Componentes reusáveis
+.header,
+.footer {
+	width: 100%;
+	background-image: linear-gradient(
+		180deg,
+		$app_color 0%,
+		$app_color_gradient 100%
+	);
+	padding: 1rem 0;
+	.__wrapper {
+		color: $white_color;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 1rem;
+	}
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.app {
+	position: relative;
+	top: 90px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.__links a {
+		color: $link_color;
+	}
+}
+
+// Componentes Index
+.__divider {
+	margin: 0 auto 180px;
+	@include mobile() {
+		margin: 0;
+	}
+	width: 50%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	.--item:first-child {
+		border-right: 1px solid black;
+	}
+	.--item {
+		padding: 5rem 1rem;
+	}
+	.--item form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		label {
+			width: fit-content;
+		}
+		input {
+			margin-top: 5px;
+			width: 100%;
+			padding: 5px 1rem;
+			outline: 0;
+			border: 1px solid transparent;
+			border-bottom-color: $app_color;
+		}
+	}
+}
