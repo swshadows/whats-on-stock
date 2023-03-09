@@ -1,7 +1,8 @@
 <?php
 // Diretórios
-define('__SRC__', dirname(__DIR__) . '/src');
-define('__APP__', dirname(__DIR__) . '/app');
+define('__ROOT__', dirname(__DIR__));
+define('__SRC__', __ROOT__ . '/src');
+define('__APP__', __ROOT__ . '/app');
 
 // Nomes
 define('__NAME__', "What's on Stock?");
