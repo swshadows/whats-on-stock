@@ -1,9 +1,11 @@
 @import "colors";
 @import "responsive";
+@import "animations";
 
 // Componentes reusáveis
 .header,
 .footer {
+	z-index: 1;
 	width: 100%;
 	background-image: linear-gradient(
 		180deg,
@@ -42,6 +44,9 @@
 		color: $link_color;
 	}
 }
+.hidden {
+	display: none;
+}
 
 // Componentes Index
 .__divider {
@@ -57,7 +62,9 @@
 		border-right: 1px solid black;
 	}
 	.--item {
+		height: 200px;
 		padding: 5rem 1rem;
+		animation: 0.7s ease-in-out transcale 1;
 	}
 	.--item form {
 		display: flex;
@@ -66,13 +73,25 @@
 		label {
 			width: fit-content;
 		}
-		input {
+		input:not([type="checkbox"]) {
 			margin-top: 5px;
-			width: 100%;
+			width: 200px;
 			padding: 5px 1rem;
 			outline: 0;
 			border: 1px solid transparent;
 			border-bottom-color: $app_color;
+		}
+		input[type="checkbox"] {
+			accent-color: $link_color;
+		}
+	}
+	.switcher {
+		margin-top: 10px;
+		a {
+			color: $link_color;
+			&:visited {
+				color: $link_color;
+			}
 		}
 	}
 }

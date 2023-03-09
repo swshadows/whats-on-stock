@@ -5,8 +5,17 @@
   font-family: "Tilt Neon", cursive;
 }
 
+@keyframes transcale {
+  from {
+    transform: translate(0, -1000px);
+  }
+  to {
+    transform: translate(0);
+  }
+}
 .header,
 .footer {
+  z-index: 1;
   width: 100%;
   background-image: linear-gradient(180deg, #001936 0%, #003877 100%);
   padding: 1rem 0;
@@ -43,6 +52,10 @@
   color: #b8b0ff;
 }
 
+.hidden {
+  display: none;
+}
+
 .__divider {
   margin: 0 auto 180px;
   width: 50%;
@@ -59,7 +72,9 @@
   border-right: 1px solid black;
 }
 .__divider .--item {
+  height: 200px;
   padding: 5rem 1rem;
+  animation: 0.7s ease-in-out transcale 1;
 }
 .__divider .--item form {
   display: flex;
@@ -69,13 +84,25 @@
 .__divider .--item form label {
   width: fit-content;
 }
-.__divider .--item form input {
+.__divider .--item form input:not([type=checkbox]) {
   margin-top: 5px;
-  width: 100%;
+  width: 200px;
   padding: 5px 1rem;
   outline: 0;
   border: 1px solid transparent;
   border-bottom-color: #001936;
+}
+.__divider .--item form input[type=checkbox] {
+  accent-color: #b8b0ff;
+}
+.__divider .switcher {
+  margin-top: 10px;
+}
+.__divider .switcher a {
+  color: #b8b0ff;
+}
+.__divider .switcher a:visited {
+  color: #b8b0ff;
 }
 
 /*# sourceMappingURL=main.css.map */
