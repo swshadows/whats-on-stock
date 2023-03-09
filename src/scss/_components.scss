@@ -50,7 +50,7 @@
 
 // Componentes Index
 .__divider {
-	margin: 0 auto 180px;
+	margin: 0 auto 230px;
 	@include mobile() {
 		margin: 0;
 	}
@@ -62,20 +62,19 @@
 		border-right: 1px solid black;
 	}
 	.--item {
-		height: 200px;
+		height: 300px;
 		padding: 5rem 1rem;
 		animation: 0.7s ease-in-out transcale 1;
 	}
 	.--item form {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 10px;
 		label {
 			width: fit-content;
 		}
 		input:not([type="checkbox"]) {
 			margin-top: 5px;
-			width: 200px;
 			padding: 5px 1rem;
 			outline: 0;
 			border: 1px solid transparent;
@@ -83,6 +82,14 @@
 		}
 		input[type="checkbox"] {
 			accent-color: $link_color;
+		}
+		input[type="submit"] {
+			border: 0;
+			transition: 0.5s all;
+			&:hover {
+				cursor: pointer;
+				background-color: darken($color: #fff, $amount: 10);
+			}
 		}
 	}
 	.switcher {
