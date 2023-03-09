@@ -48,6 +48,28 @@
 	display: none;
 }
 
+.message {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	animation: 0.3s ease-in-out message-pop 1;
+	color: #fff;
+	&.success {
+		border: 3px solid #005c26;
+		background-color: #009c60;
+	}
+	&.error {
+		border: 3px solid #5c0000;
+		background-color: #9c0000;
+	}
+	&.message-hidden {
+		animation: 0.3s ease-in-out message-hide 1;
+		visibility: hidden;
+	}
+}
+
 // Componentes Index
 .__divider {
 	margin: 0 auto 230px;

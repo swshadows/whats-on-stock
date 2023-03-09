@@ -39,7 +39,7 @@ require_once 'templates/header.php';
 			<p class="switcher">Já tem uma conta? Faça <a href="#" onclick="switchNodes('switch-1', 'switch-2')">login</a></p>
 		</div>
 	</div>
-
+	<?php require_once 'components/message.php' ?>
 </main>
 <?php
 require_once 'templates/footer.php';

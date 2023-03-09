@@ -6,3 +6,22 @@
 		transform: translate(0);
 	}
 }
+
+@keyframes message-pop {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+@keyframes message-hide {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+		visibility: visible;
+	}
+	to {
+		transform: translate(-50%, -50%) scale(0);
+		visibility: hidden;
+	}
+}
