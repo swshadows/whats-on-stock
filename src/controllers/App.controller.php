@@ -3,16 +3,6 @@ session_start();
 
 class App
 {
-	// Compara duas senhas
-	public static function compare_passwords($pswd, $pswd_repeat)
-	{
-		if ($pswd == $pswd_repeat) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	// Redireciona para determinada página
 	public static function redirect($to)
 	{

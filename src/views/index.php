@@ -26,13 +26,13 @@ require_once 'templates/header.php';
 			<!-- Register form -->
 			<form action="/user/create" method="POST">
 				<label for="email-reg">Digite seu e-mail:</label>
-				<input type="text" id="email-reg" name="email" placeholder="Digite um email válido (nome@email.com)">
+				<input required type="email" id="email-reg" name="email" placeholder="Digite um email válido (nome@email.com)">
 				<label for="password-reg"> Digite sua senha:</label>
-				<input type="password" id="password-reg" name="password" placeholder="Digite uma senha com 8+ caracteres">
-				<label for="repeat-password-reg">Repita sua senha:</label>
-				<input type="password" id="repeat-password-reg" name="password-repeat" placeholder="Repita sua senha com 8+ caracteres">
+				<input required type="password" id="password-reg" name="password" placeholder="Digite uma senha com 8+ caracteres">
+				<label for="password-repeat-reg">Repita sua senha:</label>
+				<input required type="password" id="password-repeat-reg" name="password-repeat" placeholder="Repita sua senha com 8+ caracteres">
 				<label>
-					<input type="checkbox" onclick="switchPasswordInputs('password-reg', 'repeat-password-reg')"> Mostrar senhas
+					<input type="checkbox" onclick="switchPasswordInputs('password-reg', 'password-repeat-reg')"> Mostrar senhas
 				</label>
 				<input type="submit" value="Criar conta">
 			</form>
