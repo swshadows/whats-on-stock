@@ -4,14 +4,14 @@ require_once 'templates/header.php';
 
 <main class="app">
 	<?php require_once 'components/message.php'; ?>
-	<div class="__divider">
-		<div class="--item">
+	<div class="app__divider">
+		<div class="divider__item">
 			<p>Bem-vindo a <b>📦 <?= __NAME__ ?></b>.</p>
 			<p>Uma aplicação de gerenciamento de estoque individual</p>
 			<p>Desenvolvida para projeto de Desenvolvimento de Sistemas</p>
 		</div>
 		<?php if (!isset($_COOKIE['login_info'])) : ?>
-			<div class="--item" id="switch-1">
+			<div class="divider__item" id="switch-1">
 				<!-- Login form -->
 				<form action="/user/login" method="POST">
 					<label for="email-login"> Digite seu e-mail: </label>
@@ -25,7 +25,7 @@ require_once 'templates/header.php';
 				</form>
 				<p class="switcher">Ainda não tem uma conta? <a href="#" onclick="switchNodes('switch-1', 'switch-2')">Registre-se</a></p>
 			</div>
-			<div class="--item hidden" id="switch-2">
+			<div class="divider__item hidden" id="switch-2">
 				<!-- Register form -->
 				<form action="/user/create" method="POST">
 					<label for="email-reg">Digite seu e-mail:</label>
@@ -42,7 +42,7 @@ require_once 'templates/header.php';
 				<p class="switcher">Já tem uma conta? Faça <a href="#" onclick="switchNodes('switch-1', 'switch-2')">login</a></p>
 			</div>
 		<?php else : ?>
-			<div class="--item">Você está logado, acesse a <a href="/app">clicando aqui</a></div>
+			<div class="divider__item">Você está logado, acesse a <a href="/app">clicando aqui</a></div>
 		<?php endif; ?>
 	</div>
 </main>

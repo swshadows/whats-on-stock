@@ -90,7 +90,7 @@
 }
 
 // Componentes Index
-.__divider {
+.app__divider {
 	margin: 0 auto 230px;
 	@include mobile() {
 		margin: 0;
@@ -99,15 +99,15 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
-	.--item:first-child {
+	.divider__item:first-child {
 		border-right: 1px solid black;
 	}
-	.--item {
+	.divider__item {
 		height: 300px;
 		padding: 5rem 1rem;
 		animation: 0.7s ease-in-out transcale 1;
 	}
-	.--item form {
+	.divider__item form {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;

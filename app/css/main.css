@@ -117,7 +117,7 @@
   visibility: hidden;
 }
 
-.__divider {
+.app__divider {
   margin: 0 auto 230px;
   width: 50%;
   display: grid;
@@ -125,51 +125,51 @@
   align-items: center;
 }
 @media screen and (max-width: 450px) {
-  .__divider {
+  .app__divider {
     margin: 0;
   }
 }
-.__divider .--item:first-child {
+.app__divider .divider__item:first-child {
   border-right: 1px solid black;
 }
-.__divider .--item {
+.app__divider .divider__item {
   height: 300px;
   padding: 5rem 1rem;
   animation: 0.7s ease-in-out transcale 1;
 }
-.__divider .--item form {
+.app__divider .divider__item form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.__divider .--item form label {
+.app__divider .divider__item form label {
   width: fit-content;
 }
-.__divider .--item form input:not([type=checkbox]) {
+.app__divider .divider__item form input:not([type=checkbox]) {
   margin-top: 5px;
   padding: 5px 1rem;
   outline: 0;
   border: 1px solid transparent;
   border-bottom-color: #001936;
 }
-.__divider .--item form input[type=checkbox] {
+.app__divider .divider__item form input[type=checkbox] {
   accent-color: #b8b0ff;
 }
-.__divider .--item form input[type=submit] {
+.app__divider .divider__item form input[type=submit] {
   border: 0;
   transition: 0.5s all;
 }
-.__divider .--item form input[type=submit]:hover {
+.app__divider .divider__item form input[type=submit]:hover {
   cursor: pointer;
   background-color: #e6e6e6;
 }
-.__divider .switcher {
+.app__divider .switcher {
   margin-top: 10px;
 }
-.__divider .switcher a {
+.app__divider .switcher a {
   color: #b8b0ff;
 }
-.__divider .switcher a:visited {
+.app__divider .switcher a:visited {
   color: #b8b0ff;
 }
 
