@@ -1,5 +1,9 @@
 <?php
 session_start();
+require_once __SRC__ . "/controllers/App.controller.php";
+
+$is_logged = App::check_auth();
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,7 @@ session_start();
 			<a href="/"><img width="50" src="favicon.ico" alt="Ícone da aplicação"></a>
 			<a href="/"><span><?= __NAME__ ?></span></a>
 		</div>
-		<?php if (isset($_SESSION['LOGIN'])) : ?>
+		<?php if ($is_logged) : ?>
 			<div class="wrapper">
 				<a href="/me" class="link-button">Minhas informações</a>
 				<a href="/user/logout" class="link-button">Sair</a>

@@ -1,6 +1,10 @@
 <?php
 require_once 'templates/header.php';
 require_once 'components/message.php';
+require_once __SRC__ . "/controllers/App.controller.php";
+
+$is_logged = App::check_auth();
+
 ?>
 
 <main class="app">
@@ -10,7 +14,7 @@ require_once 'components/message.php';
 			<p>Uma aplicação de gerenciamento de estoque individual</p>
 			<p>Desenvolvida para projeto de Desenvolvimento de Sistemas</p>
 		</div>
-		<?php if (!isset($_SESSION['LOGIN'])) : ?>
+		<?php if (!$is_logged) : ?>
 			<div class="divider__item" id="switch-1">
 				<!-- Login form -->
 				<form action="/user/login" method="POST">

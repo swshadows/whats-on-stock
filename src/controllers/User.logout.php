@@ -2,7 +2,10 @@
 
 require_once "App.controller.php";
 
-if (isset($_SESSION['LOGIN'])) {
+$is_logged = App::check_auth();
+
+
+if ($is_logged) {
 	unset($_SESSION['LOGIN']);
 	App::set_message("success", "✅ Você fez logout e foi redirecionado", "/");
 } else {

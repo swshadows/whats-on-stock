@@ -2,8 +2,11 @@
 require_once "templates/header.php";
 require_once __SRC__ . "/models/UserDAO.php";
 require_once 'components/message.php';
+require_once __SRC__ . "/controllers/App.controller.php";
 
-if (isset($_SESSION['LOGIN'])) {
+$is_logged = App::check_auth();
+
+if ($is_logged) {
 	$user_dao = new UserDAO();
 	$user = $user_dao->find_by_email($_SESSION['LOGIN']);
 }
