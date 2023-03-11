@@ -5,12 +5,13 @@ const switchNodes = (nodeId, otherNodeId) => {
 };
 
 // Troca tipos email por text
-const switchPasswordInputs = (inputId, otherInputId) => {
-	const input = document.getElementById(inputId);
-	const otherInput = document.getElementById(otherInputId);
-
-	change(input);
-	if (otherInput) change(otherInput);
+const switchPasswordInputs = (...inputIds) => {
+	if (inputIds) {
+		inputIds.forEach((inputId) => {
+			const input = document.getElementById(inputId);
+			change(input);
+		});
+	}
 };
 
 const change = (i) => {
