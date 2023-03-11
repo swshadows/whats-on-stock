@@ -9,7 +9,7 @@ $is_logged = App::check_auth();
 
 if (!$is_logged) {
 	$message->not_auth();
-	App::set_message($message->get_type(), $message->get_message(), "/");
+	App::set_message($message, "/");
 }
 $user = new User($_SESSION['LOGIN'], "");
 $user_dao = new UserDAO();
@@ -18,4 +18,4 @@ $user_dao->delete($user->get_email());
 unset($_SESSION['LOGIN']);
 
 $message->user_delete_success();
-App::set_message($message->get_type(), $message->get_message(), "/");
+App::set_message($message, "/");

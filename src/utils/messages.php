@@ -72,6 +72,13 @@ class Message
 		$this->message = "✅ Login realizado com sucesso";
 	}
 
+	// Login bem sucedido
+	public function logout_success()
+	{
+		$this->type = $this->type_arr[1];
+		$this->message = "✅ Você fez logout e foi redirecionado";
+	}
+
 	// Registro bem sucedido
 	public function register_success()
 	{

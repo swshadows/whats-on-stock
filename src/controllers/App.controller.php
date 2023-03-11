@@ -21,9 +21,9 @@ class App
 	}
 
 	// Seta uma mensagem temporária na sessão
-	public static function set_message($msg_type = "error" || "success", $msg_string, $optional_path = null)
+	public static function set_message(Message $msg, $optional_path = null)
 	{
-		$_SESSION['MESSAGE'] = ['type' => $msg_type, 'string' => $msg_string];
+		$_SESSION['MESSAGE'] = ['type' => $msg->get_type(), 'string' => $msg->get_message()];
 		if ($optional_path) {
 			self::redirect($optional_path);
 		}

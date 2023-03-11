@@ -15,29 +15,29 @@ $user_dao = new UserDAO();
 // Valida o formato do email
 if (!$user->validate_email()) {
 	$message->email_invalid();
-	App::set_message($message->get_type(), $message->get_message(), "/");
+	App::set_message($message, "/");
 }
 
 // Confere se o email está registrado
 $user_saved = $user_dao->find_by_email($user->get_email());
 if (!$user_saved) {
 	$message->email_dont_exist();
-	App::set_message($message->get_type(), $message->get_message(), "/");
+	App::set_message($message, "/");
 }
 
 // Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
 if (!$user->check_password_safe()) {
 	$message->password_pattern_wrong();
-	App::set_message($message->get_type(), $message->get_message(), "/");
+	App::set_message($message, "/");
 }
 
 // Confere se a senha digitada e a salva são iguais
 if (!$user->dehash_password($user_saved['password'])) {
 	$message->passwords_dont_match();
-	App::set_message($message->get_type(), $message->get_message(), "/");
+	App::set_message($message, "/");
 }
 
 $_SESSION['LOGIN'] = $user->get_email();
 
 $message->login_success();
-App::set_message($message->get_type(), $message->get_message(), "/app");
+App::set_message($message, "/app");
