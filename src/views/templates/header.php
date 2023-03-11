@@ -20,7 +20,7 @@ session_start();
 		<div class="__wrapper">
 			<img width="50" src="favicon.ico" alt="Ícone da aplicação"> <span><?= __NAME__ ?></span>
 		</div>
-		<?php if (isset($_COOKIE['login_info'])) : ?>
+		<?php if (isset($_SESSION['LOGIN_INFO'])) : ?>
 			<a class="--link" href="/user/logout">Sair</a>
 		<?php endif; ?>
 	</header>
