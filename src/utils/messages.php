@@ -85,4 +85,11 @@ class Message
 		$this->type = $this->type_arr[1];
 		$this->message = "✅ Email atualizado com sucesso!";
 	}
+
+	// Atualização de senha bem sucedida
+	public function password_update_success()
+	{
+		$this->type = $this->type_arr[1];
+		$this->message = "✅ Senha atualizada com sucesso!";
+	}
 }

@@ -46,12 +46,12 @@ class UserDAO
 		$stmt->bindValue(":previous_email", $prev_em);
 		$stmt->execute();
 	}
-	public function update_password(User $u, string $new_pwsd)
+	public function update_password(string $em, string $new_pwsd)
 	{
-		$query = "UPDATE users SET password = :password WHERE password = :previous_password";
+		$query = "UPDATE users SET password = :password WHERE email = :email";
 		$stmt = $this->connection->prepare($query);
 		$stmt->bindValue(":password", $new_pwsd);
-		$stmt->bindValue(":previous_password", $u->get_password());
+		$stmt->bindValue(":email", $em);
 		$stmt->execute();
 	}
 
