@@ -15,14 +15,14 @@
 		$app_color 0%,
 		$app_color_gradient 100%
 	);
-	.__wrapper {
+	.wrapper {
 		color: $white_color;
 		display: flex;
 		align-items: center;
 		gap: 10px;
 		margin: 0 1rem;
 	}
-	.--link {
+	.link-button {
 		margin-right: 2rem;
 		padding: 0.5rem;
 		text-decoration: none;
@@ -37,6 +37,9 @@
 			transform: scale(1.2);
 			background-color: darken($color: $white_color, $amount: 10);
 		}
+	}
+	.links a {
+		color: $link_color;
 	}
 }
 
@@ -58,9 +61,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	.__links a {
-		color: $link_color;
-	}
 }
 .hidden {
 	display: none;

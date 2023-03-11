@@ -40,16 +40,16 @@
   padding: 1rem 0;
   background-image: linear-gradient(180deg, #001936 0%, #003877 100%);
 }
-.header .__wrapper,
-.footer .__wrapper {
+.header .wrapper,
+.footer .wrapper {
   color: #ffffff;
   display: flex;
   align-items: center;
   gap: 10px;
   margin: 0 1rem;
 }
-.header .--link,
-.footer .--link {
+.header .link-button,
+.footer .link-button {
   margin-right: 2rem;
   padding: 0.5rem;
   text-decoration: none;
@@ -60,11 +60,15 @@
   border-radius: 10px;
   transition: 0.2s all;
 }
-.header .--link:hover,
-.footer .--link:hover {
+.header .link-button:hover,
+.footer .link-button:hover {
   cursor: pointer;
   transform: scale(1.2);
   background-color: #e6e6e6;
+}
+.header .links a,
+.footer .links a {
+  color: #b8b0ff;
 }
 
 .header {
@@ -85,9 +89,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.footer .__links a {
-  color: #b8b0ff;
 }
 
 .hidden {
