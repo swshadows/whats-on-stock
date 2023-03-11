@@ -92,4 +92,11 @@ class Message
 		$this->type = $this->type_arr[1];
 		$this->message = "✅ Senha atualizada com sucesso!";
 	}
+
+	// Deleção de conta bem sucedida
+	public function user_delete_success()
+	{
+		$this->type = $this->type_arr[1];
+		$this->message = "✅ Conta deletada com sucesso! Você foi redirecionado";
+	}
 }

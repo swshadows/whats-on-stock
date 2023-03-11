@@ -55,7 +55,11 @@ class UserDAO
 		$stmt->execute();
 	}
 
-	public function delete(int $id)
+	public function delete(string $em)
 	{
+		$query = "DELETE FROM users WHERE email = :email";
+		$stmt = $this->connection->prepare($query);
+		$stmt->bindValue(":email", $em);
+		$stmt->execute();
 	}
 }

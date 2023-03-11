@@ -4,7 +4,7 @@ const switchNodes = (nodeId, otherNodeId) => {
 	document.getElementById(otherNodeId).classList.toggle("hidden");
 };
 
-// Troca tipos email por text
+// Troca tipos password por text
 const switchPasswordInputs = (...inputIds) => {
 	if (inputIds) {
 		inputIds.forEach((inputId) => {
@@ -18,4 +18,15 @@ const change = (i) => {
 	const types = ["text", "password"];
 	if (i.type == types[0]) i.type = types[1];
 	else i.type = types[0];
+};
+
+// Confirma a deleção de dados de um formulário
+const confirmFormSend = (form, event) => {
+	event.preventDefault();
+	const confirmation = confirm(
+		"🚮 Deseja realmente apagar sua conta?\n ⚠ AVISO: Essa ação é irreversível"
+	);
+	if (confirmation) {
+		form.submit();
+	}
 };
