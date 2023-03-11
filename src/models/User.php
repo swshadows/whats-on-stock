@@ -78,12 +78,3 @@ class User
 		}
 	}
 }
-
-interface UserDAOInterface
-{
-	public function create(User $user);
-	public function find_all();
-	public function find_by_email(string $email);
-	public function update(User $user);
-	public function delete(int $id);
-}

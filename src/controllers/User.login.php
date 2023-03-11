@@ -40,4 +40,4 @@ if (!$user->dehash_password($user_saved['password'])) {
 $_SESSION['LOGIN'] = $user->get_email();
 
 $message->login_success();
-App::set_message($message->get_type(), $message->get_message(), "/");
+App::set_message($message->get_type(), $message->get_message(), "/app");

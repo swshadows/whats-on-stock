@@ -1,9 +1,9 @@
 <?php
 require_once "templates/header.php";
+require_once 'components/message.php';
 ?>
 
 <main class="app">
-	<?php require_once 'components/message.php'; ?>
 	APLICAÇÃO
 </main>
 <?php

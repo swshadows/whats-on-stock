@@ -3,6 +3,16 @@ session_start();
 
 class App
 {
+	// Checa se o usuário está autenticado
+	public static function check_auth()
+	{
+		if (isset($_SESSION['LOGIN'])) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// Redireciona para determinada página
 	public static function redirect($to)
 	{

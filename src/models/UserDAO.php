@@ -4,7 +4,7 @@ require 'User.php';
 require 'PDO.php';
 
 
-class UserDAO implements UserDAOInterface
+class UserDAO
 {
 	private PDO $connection;
 
@@ -37,9 +37,24 @@ class UserDAO implements UserDAOInterface
 
 		return $data;
 	}
-	public function update(User $user)
+
+	public function update_email(string $prev_em, string $new_em)
 	{
+		$query = "UPDATE users SET email = :email WHERE email = :previous_email";
+		$stmt = $this->connection->prepare($query);
+		$stmt->bindValue(":email", $new_em);
+		$stmt->bindValue(":previous_email", $prev_em);
+		$stmt->execute();
 	}
+	public function update_password(User $u, string $new_pwsd)
+	{
+		$query = "UPDATE users SET password = :password WHERE password = :previous_password";
+		$stmt = $this->connection->prepare($query);
+		$stmt->bindValue(":password", $new_pwsd);
+		$stmt->bindValue(":previous_password", $u->get_password());
+		$stmt->execute();
+	}
+
 	public function delete(int $id)
 	{
 	}

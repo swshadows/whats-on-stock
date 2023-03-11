@@ -1,9 +1,9 @@
 <?php
 require_once 'templates/header.php';
+require_once 'components/message.php';
 ?>
 
 <main class="app">
-	<?php require_once 'components/message.php'; ?>
 	<div class="app__divider">
 		<div class="divider__item">
 			<p>Bem-vindo a <b>📦 <?= __NAME__ ?></b>.</p>

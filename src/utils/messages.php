@@ -17,6 +17,13 @@ class Message
 		return $this->message;
 	}
 
+	// Usuário não logado
+	public function not_auth()
+	{
+		$this->type = $this->type_arr[0];
+		$this->message = "❌ Você ainda não fez login";
+	}
+
 	// Senhas diferentes
 	public function diff_passwords()
 	{
@@ -64,10 +71,18 @@ class Message
 		$this->type = $this->type_arr[1];
 		$this->message = "✅ Login realizado com sucesso";
 	}
+
 	// Registro bem sucedido
 	public function register_success()
 	{
 		$this->type = $this->type_arr[1];
 		$this->message = "✅ Usuário criado com sucesso! Faça login";
+	}
+
+	// Atualização de email bem sucedida
+	public function email_update_success()
+	{
+		$this->type = $this->type_arr[1];
+		$this->message = "✅ Email atualizado com sucesso!";
 	}
 }
