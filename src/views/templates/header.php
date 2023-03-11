@@ -21,7 +21,10 @@ session_start();
 			<a href="/"><img width="50" src="favicon.ico" alt="Ícone da aplicação"></a>
 			<a href="/"><span><?= __NAME__ ?></span></a>
 		</div>
-		<?php if (isset($_SESSION['LOGIN_INFO'])) : ?>
-			<a class="link-button" href="/user/logout">Sair</a>
+		<?php if (isset($_SESSION['LOGIN'])) : ?>
+			<div class="wrapper">
+				<a href="/me" class="link-button">Minhas informações</a>
+				<a href="/user/logout" class="link-button">Sair</a>
+			</div>
 		<?php endif; ?>
 	</header>

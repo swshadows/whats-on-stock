@@ -30,5 +30,5 @@ if (!$user->dehash_password($user_saved['password'])) {
 	App::set_message("error", "❌ Senha incorreta, tente novamente", "/");
 }
 
-$_SESSION['LOGIN_INFO'] = $user->get_email();
+$_SESSION['LOGIN'] = $user->get_email();
 App::set_message("success", "✅ Login realizado com sucesso", "/app");

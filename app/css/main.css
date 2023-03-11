@@ -80,6 +80,7 @@
 .app {
   position: relative;
   top: 90px;
+  margin: 0 10px;
 }
 
 .footer {
@@ -118,6 +119,27 @@
   visibility: hidden;
 }
 
+input:not([type=checkbox]) {
+  margin-top: 5px;
+  padding: 5px 1rem;
+  outline: 0;
+  border: 1px solid transparent;
+  border-bottom-color: #001936;
+}
+
+input[type=checkbox] {
+  accent-color: #b8b0ff;
+}
+
+input[type=submit] {
+  border: 0;
+  transition: 0.5s all;
+}
+input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #e6e6e6;
+}
+
 .app__divider {
   margin: 0 auto 230px;
   width: 50%;
@@ -146,24 +168,6 @@
 .app__divider .divider__item form label {
   width: fit-content;
 }
-.app__divider .divider__item form input:not([type=checkbox]) {
-  margin-top: 5px;
-  padding: 5px 1rem;
-  outline: 0;
-  border: 1px solid transparent;
-  border-bottom-color: #001936;
-}
-.app__divider .divider__item form input[type=checkbox] {
-  accent-color: #b8b0ff;
-}
-.app__divider .divider__item form input[type=submit] {
-  border: 0;
-  transition: 0.5s all;
-}
-.app__divider .divider__item form input[type=submit]:hover {
-  cursor: pointer;
-  background-color: #e6e6e6;
-}
 .app__divider .switcher {
   margin-top: 10px;
 }
@@ -172,6 +176,24 @@
 }
 .app__divider .switcher a:visited {
   color: #b8b0ff;
+}
+
+.update-title {
+  text-align: center;
+}
+
+.update-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.update-me-form {
+  width: 40%;
+  display: grid;
+  align-items: center;
+  gap: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

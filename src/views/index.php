@@ -10,7 +10,7 @@ require_once 'templates/header.php';
 			<p>Uma aplicação de gerenciamento de estoque individual</p>
 			<p>Desenvolvida para projeto de Desenvolvimento de Sistemas</p>
 		</div>
-		<?php if (!isset($_SESSION['LOGIN_INFO'])) : ?>
+		<?php if (!isset($_SESSION['LOGIN'])) : ?>
 			<div class="divider__item" id="switch-1">
 				<!-- Login form -->
 				<form action="/user/login" method="POST">
