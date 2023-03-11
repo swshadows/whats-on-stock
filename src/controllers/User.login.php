@@ -2,6 +2,9 @@
 session_start();
 require_once "App.controller.php";
 require_once __SRC__ . "/models/UserDAO.php";
+require __SRC__ . '/utils/messages.php';
+
+$message = new Message();
 
 $email = $_POST['email'];
 $pswd = $_POST['password'];
@@ -11,24 +14,30 @@ $user_dao = new UserDAO();
 
 // Valida o formato do email
 if (!$user->validate_email()) {
-	App::set_message("error", "❌ O email enviado é inválido", "/");
+	$message->email_invalid();
+	App::set_message($message->get_type(), $message->get_message(), "/");
 }
 
 // Confere se o email está registrado
 $user_saved = $user_dao->find_by_email($user->get_email());
 if (!$user_saved) {
-	App::set_message("error", "❌ E-mail não registrado", "/");
+	$message->email_dont_exist();
+	App::set_message($message->get_type(), $message->get_message(), "/");
 }
 
 // Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
 if (!$user->check_password_safe()) {
-	App::set_message("error", "❌ A senha deve conter de 8 a 255 caracteres", "/");
+	$message->password_pattern_wrong();
+	App::set_message($message->get_type(), $message->get_message(), "/");
 }
 
 // Confere se a senha digitada e a salva são iguais
 if (!$user->dehash_password($user_saved['password'])) {
-	App::set_message("error", "❌ Senha incorreta, tente novamente", "/");
+	$message->passwords_dont_match();
+	App::set_message($message->get_type(), $message->get_message(), "/");
 }
 
 $_SESSION['LOGIN'] = $user->get_email();
-App::set_message("success", "✅ Login realizado com sucesso", "/app");
+
+$message->login_success();
+App::set_message($message->get_type(), $message->get_message(), "/");
