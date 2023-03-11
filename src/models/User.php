@@ -31,7 +31,6 @@ class User
 		$this->password = $var;
 	}
 
-	// Métodos
 	// Valida o email
 	public function validate_email()
 	{
@@ -57,6 +56,15 @@ class User
 		} else {
 			return false;
 		}
+	}
+
+	// Checa se o hash da senha 
+	public function dehash_password($hash)
+	{
+		if (password_verify($this->password, $hash)) {
+			return true;
+		}
+		return false;
 	}
 
 	// Checa se a senha é maior que 8 caracteres e menor que 255 caracteres
