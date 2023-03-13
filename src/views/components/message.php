@@ -9,6 +9,6 @@
 	<script>
 		setTimeout(() => {
 			document.querySelector('.message').classList.add("message-hidden");
-		}, 2000);
+		}, 3000);
 	</script>
 <?php endif; ?>

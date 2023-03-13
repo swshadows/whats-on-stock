@@ -86,6 +86,13 @@ class Message
 		$this->message = "✅ Usuário criado com sucesso! Faça login";
 	}
 
+	// Página inexistente: 404
+	public function page_dont_exist()
+	{
+		$this->type = $this->type_arr[0];
+		$this->message = "❌ A página acessada não existe, você foi redirecionado";
+	}
+
 	// Atualização de email bem sucedida
 	public function email_update_success()
 	{
