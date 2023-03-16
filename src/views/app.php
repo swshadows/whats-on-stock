@@ -58,14 +58,16 @@ $arr = $item_dao->find_all();
 				<div class="modal hidden" id="modal-<?= $i['id'] ?>">
 					<div class="modal-block">
 						<button class="close-modal" onclick="toggleModal('modal-<?= $i['id'] ?>')">❌</button>
-						<form>
+						<form action="/item/update_name" method="POST">
 							<label>Editar nome:</label>
 							<input type="text" name="name" value="<?= $i['name'] ?>" placeholder="Digite um novo nome">
+							<input type="hidden" name="id" value="<?= $i['id'] ?>">
 							<input type="submit" value="Atualizar nome">
 						</form>
-						<form>
+						<form action="/item/update_qty" method="POST">
 							<label>Editar quantidade:</label>
 							<input type="number" name="qty" value="<?= $i['qty'] ?>" placeholder="Digite uma nova quantidade">
+							<input type="hidden" name="id" value="<?= $i['id'] ?>">
 							<input type="submit" value="Atualizar quantidade">
 						</form>
 					</div>
