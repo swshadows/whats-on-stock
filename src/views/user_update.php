@@ -8,7 +8,7 @@ $is_logged = App::check_auth();
 
 if ($is_logged) {
 	$user_dao = new UserDAO();
-	$user = $user_dao->find_by_email($_SESSION['LOGIN']);
+	$user = $user_dao->find_by_email($_SESSION['LOGIN']['email']);
 }
 ?>
 

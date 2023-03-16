@@ -23,10 +23,6 @@ class UserDAO
 		$sttm->execute();
 	}
 
-	public function find_all()
-	{
-	}
-
 	public function find_by_email(string $email)
 	{
 		$query = "SELECT * FROM users WHERE email=:email";

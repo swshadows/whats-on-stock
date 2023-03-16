@@ -15,8 +15,8 @@ if (!App::check_auth()) {
 	App::set_message($message, "/");
 }
 
-$user = new User($_SESSION['LOGIN'], $pswd);
-$user_new  = new User($_SESSION['LOGIN'], $pwsd_new);
+$user = new User($_SESSION['LOGIN']['email'], $pswd);
+$user_new  = new User($_SESSION['LOGIN']['email'], $pwsd_new);
 
 // Compara se as senhas enviadas são iguais
 if (!$user_new->compare_passwords($pswd_repeat)) {

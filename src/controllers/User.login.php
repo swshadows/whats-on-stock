@@ -37,7 +37,8 @@ if (!$user->dehash_password($user_saved['password'])) {
 	App::set_message($message, "/");
 }
 
-$_SESSION['LOGIN'] = $user->get_email();
+$user_formatted = $user_dao->find_by_email($user->get_email());
+$_SESSION['LOGIN'] = ['id' => $user_formatted['id'], 'email' => $user_formatted['email']];
 
 $message->login_success();
 App::set_message($message, "/app");

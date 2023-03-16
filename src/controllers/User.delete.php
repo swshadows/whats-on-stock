@@ -11,7 +11,7 @@ if (!$is_logged) {
 	$message->not_auth();
 	App::set_message($message, "/");
 }
-$user = new User($_SESSION['LOGIN'], "");
+$user = new User($_SESSION['LOGIN']['email'], "");
 $user_dao = new UserDAO();
 
 $user_dao->delete($user->get_email());

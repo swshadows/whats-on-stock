@@ -30,8 +30,8 @@ if ($user_dao->find_by_email($user->get_email())) {
 	App::set_message($message, "/me");
 }
 
-$user_dao->update_email($_SESSION['LOGIN'], $user->get_email());
-$_SESSION['LOGIN'] = $user->get_email();
+$user_dao->update_email($_SESSION['LOGIN']['email'], $user->get_email());
+$_SESSION['LOGIN']['email'] = $user->get_email();
 
 $message->email_update_success();
 App::set_message($message, "/me");

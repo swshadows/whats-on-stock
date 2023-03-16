@@ -12,12 +12,11 @@ if (!App::check_auth()) {
 	App::set_message($msg, "/");
 }
 
-$arr = [
-	["id" => 1, "name" => "Caixa de papelão", "qty" => 10],
-	["id" => 2, "name" => "Picanha", "qty" => 27],
-	["id" => 3, "name" => "Plástico", "qty" => 23],
-	["id" => 4, "name" => "Terno", "qty" => 2],
-]
+require_once __SRC__ . "/models/ItemDAO.php";
+
+$item_dao = new ItemDAO();
+
+$arr = $item_dao->find_all();
 
 ?>
 
@@ -25,7 +24,7 @@ $arr = [
 	<h1 class="app-title">Meu estoque</h1>
 	<div class="app-stock">
 		<?php require_once __SRC__ . "/views/components/add_item_modal.php"; ?>
-		<?php if (sizeof($arr) > 0) : ?>
+		<?php if ($arr && sizeof($arr) > 0) : ?>
 			<div class="stock-item">
 				<p>ID</p>
 				<p>Nome</p>

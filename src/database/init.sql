@@ -7,4 +7,12 @@ CREATE TABLE users(
 	email VARCHAR(100) NOT NULL,
 	password VARCHAR(255) NOT NULL,
 	UNIQUE(email)
-)
+);
+
+CREATE TABLE items(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	qty INT NOT NULL,
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
