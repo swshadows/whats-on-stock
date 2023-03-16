@@ -17,6 +17,13 @@ if (!$item->validate_qty()) {
 }
 
 $item_dao = new ItemDAO();
+
+// Checa se o usuário logado é o dono do item
+if (!$item_dao->check_owner($id)) {
+	$message->user_not_owner();
+	App::set_message($message, "/app");
+}
+
 $item_dao->update_qty($id, $item->get_qty());
 
 $message->item_update_success();

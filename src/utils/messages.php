@@ -100,6 +100,13 @@ class Message
 		$this->message = "✅ Item deletado com sucesso";
 	}
 
+	// Item não pertence ao usuário logado
+	public function user_not_owner()
+	{
+		$this->type = $this->type_arr[0];
+		$this->message = "❌ Você não é dono desse item";
+	}
+
 	// Login bem sucedido
 	public function login_success()
 	{

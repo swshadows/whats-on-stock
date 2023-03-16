@@ -26,7 +26,6 @@ $arr = $item_dao->find_all();
 		<?php require_once __SRC__ . "/views/components/add_item_modal.php"; ?>
 		<?php if ($arr && sizeof($arr) > 0) : ?>
 			<div class="stock-item stock-header">
-				<p>📦 ID</p>
 				<p>📦 Nome</p>
 				<p>📦 Quantidade</p>
 				<p>🧩 Editar</p>
@@ -34,7 +33,6 @@ $arr = $item_dao->find_all();
 			</div>
 			<?php foreach ($arr as $i) : ?>
 				<div class="stock-item">
-					<p><?= $i['id'] ?></p>
 					<p><?= $i['name'] ?></p>
 					<p><?= $i['qty'] ?></p>
 					<p>

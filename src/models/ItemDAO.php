@@ -35,6 +35,16 @@ class ItemDAO
 		return $data;
 	}
 
+	public function check_owner(int $id)
+	{
+		$query = "SELECT * FROM items WHERE id = :item_id AND user_id = :user_id";
+		$stmt = $this->connection->prepare($query);
+		$stmt->bindValue(":item_id", $id);
+		$stmt->bindValue(":user_id", $_SESSION['LOGIN']['id']);
+		$stmt->execute();
+		$data = $stmt->fetch(PDO::FETCH_ASSOC);
+		return $data ? true : false;
+	}
 
 	public function update_name(int $id, string $name)
 	{

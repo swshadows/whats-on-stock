@@ -9,8 +9,6 @@
 	flex-direction: column;
 	margin: 1rem auto 200px;
 	width: 50%;
-	border: 1px solid #000;
-	border-bottom: 0;
 	.no-item {
 		display: flex;
 		justify-content: center;
@@ -21,8 +19,9 @@
 		display: grid;
 		align-items: center;
 		padding: 0.4rem;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-		border-bottom: 1px solid #000;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		border: 1px solid #000;
+		border-top: transparent;
 		p {
 			text-align: center;
 		}
