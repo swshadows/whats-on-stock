@@ -39,3 +39,10 @@ if (messageComponent) {
 		setTimeout(() => messageComponent.remove(), 1000);
 	}, 3000);
 }
+
+// Esconde ou mostra modal
+const toggleModal = (modalId) => {
+	const modal = document.querySelector(`#${modalId}`);
+	console.log(modal);
+	modal.classList.toggle("hidden");
+};

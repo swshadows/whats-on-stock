@@ -1,3 +1,7 @@
+@import "../colors";
+@import "../responsive";
+@import "../animations";
+
 .app__divider {
 	margin: 0 auto 230px;
 	@include mobile() {
