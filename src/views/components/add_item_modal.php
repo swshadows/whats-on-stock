@@ -1,5 +1,5 @@
-<div id="add-item-modal" class="app-modal hidden">
-	<div class="app-modal-block">
+<div id="add-item-modal" class="modal hidden">
+	<div class="modal-block">
 		<button class="close-modal" onclick="toggleModal('add-item-modal')">❌</button>
 		<form action="/item/add" method="POST">
 			<label>Nome do item:</label>

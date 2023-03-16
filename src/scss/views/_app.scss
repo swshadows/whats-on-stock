@@ -32,7 +32,8 @@
 		}
 		button {
 			border: 0;
-			padding: 0.3rem;
+			border-radius: 10px;
+			padding: 0.3rem 1rem;
 			color: $white-color;
 			transition: 0.3s all;
 			&:hover {
@@ -50,53 +51,6 @@
 			background-color: #ff0000;
 			&:hover {
 				background-color: darken($color: #ff0000, $amount: 20);
-			}
-		}
-	}
-	.app-modal {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100vh;
-		background: rgba($color: #000000, $alpha: 0.2);
-		.app-modal-block {
-			border-radius: 10px;
-			position: relative;
-			padding: 2rem 1rem;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background-color: $white-color;
-			width: 50%;
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			.close-modal {
-				position: absolute;
-				top: 10px;
-				right: 10px;
-				border: 0;
-				background-color: $white-color;
-				padding: 0.7rem;
-				color: #ff0000;
-				transition: 0.3s all;
-				&:hover {
-					cursor: pointer;
-					background-color: darken($color: $white-color, $amount: 20);
-				}
-			}
-			.item-delete-button {
-				background-color: #a70000;
-				color: $white_color;
-				&:hover {
-					background-color: darken($color: #a70000, $amount: 10) !important;
-				}
-			}
-			form {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
 			}
 		}
 	}

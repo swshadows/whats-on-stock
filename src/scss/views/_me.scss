@@ -13,10 +13,20 @@
 	align-items: center;
 	gap: 10px;
 }
-.account-delete {
+.account-delete,
+.open-del-modal {
 	background-color: #a70000;
 	color: $white_color;
+	width: 40%;
+	border: 1px;
+	padding: 0.3rem 0;
+	transition: 0.3s all;
 	&:hover {
+		cursor: pointer;
 		background-color: darken($color: #a70000, $amount: 10) !important;
 	}
+}
+
+.account-delete {
+	width: 100%;
 }

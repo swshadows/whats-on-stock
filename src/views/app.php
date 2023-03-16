@@ -44,8 +44,8 @@ $arr = $item_dao->find_all();
 						<button class="del-button" onclick="toggleModal('modal-del-<?= $i['id'] ?>')">🧨</button>
 					</p>
 				</div>
-				<div class="app-modal hidden" id="modal-del-<?= $i['id'] ?>">
-					<div class="app-modal-block">
+				<div class="modal hidden" id="modal-del-<?= $i['id'] ?>">
+					<div class="modal-block">
 						<button class="close-modal" onclick="toggleModal('modal-del-<?= $i['id'] ?>')">❌</button>
 						<p>Deseja realmente apagar o item <?= $i['name'] ?>?</p>
 						<p>Essa ação é irreversivel!</p>
@@ -55,8 +55,8 @@ $arr = $item_dao->find_all();
 						</form>
 					</div>
 				</div>
-				<div class="app-modal hidden" id="modal-<?= $i['id'] ?>">
-					<div class="app-modal-block">
+				<div class="modal hidden" id="modal-<?= $i['id'] ?>">
+					<div class="modal-block">
 						<button class="close-modal" onclick="toggleModal('modal-<?= $i['id'] ?>')">❌</button>
 						<form>
 							<label>Editar nome:</label>

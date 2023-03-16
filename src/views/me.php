@@ -9,6 +9,11 @@ $is_logged = App::check_auth();
 if ($is_logged) {
 	$user_dao = new UserDAO();
 	$user = $user_dao->find_by_email($_SESSION['LOGIN']['email']);
+} else {
+	require_once __SRC__ . "/utils/messages.php";
+	$msg = new Message();
+	$msg->not_auth();
+	App::set_message($msg, "/");
 }
 ?>
 
@@ -30,9 +35,17 @@ if ($is_logged) {
 			</label>
 			<input type="submit" value="Atualizar senha">
 		</form>
-		<form onsubmit="confirmFormSend(this, event)" action="/user/delete" method="POST" class="update-me-form">
-			<input type="submit" class="account-delete" value="Deletar conta">
-		</form>
+		<button onclick="toggleModal('delete-user-modal')" type="submit" class="open-del-modal">Deletar conta</button>
+		<div class="modal hidden" id="delete-user-modal">
+			<div class="modal-block">
+				<button class="close-modal" onclick="toggleModal('delete-user-modal')">❌</button>
+				<p>Deseja realmente apagar o sua conta?</p>
+				<p>Essa ação é irreversivel!</p>
+				<form action="/user/delete" method="POST">
+					<input type="submit" class="account-delete" value="Deletar conta">
+				</form>
+			</div>
+		</div>
 	</div>
 </main>
 
