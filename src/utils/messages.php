@@ -65,6 +65,27 @@ class Message
 		$this->message = "❌ Senha incorreta, tente novamente";
 	}
 
+	// Nome do item vazio
+	public function item_name_empty()
+	{
+		$this->type = $this->type_arr[0];
+		$this->message = "❌ Nome do item está vazio";
+	}
+
+	// Quantidade do item vazio
+	public function item_qty_empty()
+	{
+		$this->type = $this->type_arr[0];
+		$this->message = "❌ Quantidade do item está vazio";
+	}
+
+	// Item adicionado com sucesso
+	public function item_add_success()
+	{
+		$this->type = $this->type_arr[1];
+		$this->message = "✅ Item adicionado com sucesso";
+	}
+
 	// Login bem sucedido
 	public function login_success()
 	{

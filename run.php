@@ -23,21 +23,21 @@ function exec_migration()
 	$sql = file_get_contents('./src/database/init.sql');
 	echo "🚀 Executando migração\n";
 	$query = $pdo->exec($sql);
-	echo $query == '1' ? "✅ Transação bem-sucedida\n" : "❌ Erro ao executar migração\n";
+	echo $query ? "✅ Transação bem-sucedida\n" : "❌ Erro ao executar migração\n";
 }
 
 // Inicia o servidor
-function init_prod_server($loc)
+function init_prod_server($php_command)
 {
 	echo "🚀 Iniciando servidor PHP\n";
-	shell_exec("php -S $loc");
+	shell_exec("$php_command");
 }
 
 // Inicia o servidor com Sass minificado
-function init_dev_server($loc, $sass_loc)
+function init_dev_server($php_command, $sass_command)
 {
 	echo "🚀 Iniciando servidor PHP e Sass\n";
-	shell_exec("php -S $loc & sass --watch $sass_loc --style compressed");
+	shell_exec("$php_command & $sass_command");
 }
 
 // Função principal
@@ -51,14 +51,14 @@ function main()
 	echo "4. Iniciar servidor com Sass (requer Sass)\n\n";
 	$choice = readline("Digite uma opção: ");
 
-	$location = "localhost:3000 -t ./app";
-	$sass = "./src/scss:./app/css";
+	$php_command = "php -S localhost:3000 -t ./app";
+	$sass_command = "sass --watch ./src/scss:./app/css --style compressed";
 
 	switch ($choice) {
 		case 0:
 			init_dotenv();
 			exec_migration();
-			init_prod_server($location);
+			init_prod_server($php_command);
 			break;
 		case 1:
 			init_dotenv();
@@ -67,10 +67,10 @@ function main()
 			exec_migration();
 			break;
 		case 3:
-			init_prod_server($location);
+			init_prod_server($php_command);
 			break;
 		case 4:
-			init_dev_server($location, $sass);
+			init_dev_server($php_command, $sass_command);
 			break;
 		default:
 			echo "❌ Opção inválida, saindo";

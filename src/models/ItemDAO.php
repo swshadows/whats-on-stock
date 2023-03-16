@@ -16,20 +16,21 @@ class ItemDAO
 
 	public function create(Item $item)
 	{
-		$query = "INSERT INTO items(name, qty) VALUES (:name, :qty)";
+		$query = "INSERT INTO items(name, qty, user_id) VALUES (:name, :qty, :user_id)";
 		$sttm = $this->connection->prepare($query);
 		$sttm->bindValue(':name', $item->get_name());
 		$sttm->bindValue(":qty", $item->get_qty());
+		$sttm->bindValue(":user_id", $_SESSION['LOGIN']['id']);
 		$sttm->execute();
 	}
 
 	public function find_all()
 	{
-		$query = "SELECT * FROM items WHERE user_id=:id";
+		$query = "SELECT * FROM items WHERE user_id = :id";
 		$stmt = $this->connection->prepare($query);
 		$stmt->bindValue(":id", $_SESSION['LOGIN']['id']);
 		$stmt->execute();
-		$data = $stmt->fetch(PDO::FETCH_ASSOC);
+		$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $data;
 	}

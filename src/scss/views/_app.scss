@@ -25,7 +25,7 @@
 		p {
 			text-align: center;
 		}
-		&:first-child {
+		&.stock-header {
 			background-color: $app-color-gradient;
 			color: $white-color;
 		}

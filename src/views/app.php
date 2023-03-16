@@ -25,12 +25,12 @@ $arr = $item_dao->find_all();
 	<div class="app-stock">
 		<?php require_once __SRC__ . "/views/components/add_item_modal.php"; ?>
 		<?php if ($arr && sizeof($arr) > 0) : ?>
-			<div class="stock-item">
-				<p>ID</p>
-				<p>Nome</p>
-				<p>Quantidade</p>
-				<p>Editar</p>
-				<p>Apagar</p>
+			<div class="stock-item stock-header">
+				<p>📦 ID</p>
+				<p>📦 Nome</p>
+				<p>📦 Quantidade</p>
+				<p>🧩 Editar</p>
+				<p>🧨 Apagar</p>
 			</div>
 			<?php foreach ($arr as $i) : ?>
 				<div class="stock-item">
@@ -38,15 +38,15 @@ $arr = $item_dao->find_all();
 					<p><?= $i['name'] ?></p>
 					<p><?= $i['qty'] ?></p>
 					<p>
-						<button class="edit-button" onclick="toggleModal('modal-<?= $i['id'] ?>')"><i class="fa-solid fa-pen"></i></button>
+						<button class="edit-button" onclick="toggleModal('modal-<?= $i['id'] ?>')">🧩</i></button>
 					</p>
 					<p>
-						<button class="del-button" onclick="toggleModal('modal-del-<?= $i['id'] ?>')"><i class="fa-solid fa-trash"></i></button>
+						<button class="del-button" onclick="toggleModal('modal-del-<?= $i['id'] ?>')">🧨</button>
 					</p>
 				</div>
 				<div class="app-modal hidden" id="modal-del-<?= $i['id'] ?>">
 					<div class="app-modal-block">
-						<button class="close-modal" onclick="toggleModal('modal-del-<?= $i['id'] ?>')"><i class="fa-solid fa-x"></i></button>
+						<button class="close-modal" onclick="toggleModal('modal-del-<?= $i['id'] ?>')">❌</button>
 						<p>Deseja realmente apagar o item <?= $i['name'] ?>?</p>
 						<p>Essa ação é irreversivel!</p>
 						<form>
@@ -56,7 +56,7 @@ $arr = $item_dao->find_all();
 				</div>
 				<div class="app-modal hidden" id="modal-<?= $i['id'] ?>">
 					<div class="app-modal-block">
-						<button class="close-modal" onclick="toggleModal('modal-<?= $i['id'] ?>')"><i class="fa-solid fa-x"></i></button>
+						<button class="close-modal" onclick="toggleModal('modal-<?= $i['id'] ?>')">❌</button>
 						<form>
 							<label>Editar nome:</label>
 							<input type="text" name="name" value="<?= $i['name'] ?>" placeholder="Digite um novo nome">

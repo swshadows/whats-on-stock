@@ -14,5 +14,5 @@ CREATE TABLE items(
 	name VARCHAR(100) NOT NULL,
 	qty INT NOT NULL,
   user_id INT,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

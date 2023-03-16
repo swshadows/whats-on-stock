@@ -5,10 +5,10 @@ class Item
 	private string $name;
 	private int $qty;
 
-	public function __construct($em, $ps)
+	public function __construct($nm, $qt)
 	{
-		$this->name = $em;
-		$this->qty = $ps;
+		$this->name = $nm;
+		$this->qty = $qt;
 	}
 
 	// Getters
@@ -35,6 +35,16 @@ class Item
 	public function validate_name()
 	{
 		if (strlen($this->name) > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Valida a quantidade do item
+	public function validate_qty()
+	{
+		if ($this->qty > 0) {
 			return true;
 		} else {
 			return false;
