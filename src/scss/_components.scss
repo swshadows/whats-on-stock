@@ -30,16 +30,15 @@
 		align-self: center;
 		background: $white_color;
 		border: 0;
-		border-radius: 10px;
 		transition: 0.2s all;
 		&:hover {
 			cursor: pointer;
-			transform: scale(1.2);
+			transform: scale(0.9);
 			background-color: darken($color: $white_color, $amount: 10);
 		}
 	}
 	.links a {
-		color: $link_color;
+		color: $link_color_light;
 	}
 }
 
@@ -75,7 +74,7 @@
 	transform: translate(-50%, -50%);
 	padding: 10px;
 	animation: 0.3s ease-in-out message-pop 1;
-	color: #fff;
+	color: $white_color;
 	&.success {
 		border: 3px solid #005c26;
 		background-color: #009c60;
@@ -98,67 +97,16 @@ input:not([type="checkbox"]) {
 	border-bottom-color: $app_color;
 }
 input[type="checkbox"] {
-	accent-color: $link_color;
+	accent-color: $link_color_dark;
+	&:hover {
+		cursor: pointer;
+	}
 }
 input[type="submit"] {
 	border: 0;
-	transition: 0.5s all;
+	transition: 0.2s all;
 	&:hover {
 		cursor: pointer;
-		background-color: darken($color: #fff, $amount: 10);
+		background-color: darken($color: $white_color, $amount: 20);
 	}
-}
-
-// Componentes Index
-.app__divider {
-	margin: 0 auto 230px;
-	@include mobile() {
-		margin: 0;
-	}
-	width: 50%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
-	.divider__item:first-child {
-		border-right: 1px solid black;
-	}
-	.divider__item {
-		height: 300px;
-		padding: 5rem 1rem;
-		animation: 0.7s ease-in-out transcale 1;
-	}
-	.divider__item form {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		label {
-			width: fit-content;
-		}
-	}
-	.switcher {
-		margin-top: 10px;
-		a {
-			color: $link_color;
-			&:visited {
-				color: $link_color;
-			}
-		}
-	}
-}
-
-// Componentes Me
-.update-title {
-	text-align: center;
-}
-.update-forms {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 20px;
-}
-.update-me-form {
-	width: 40%;
-	display: grid;
-	align-items: center;
-	gap: 10px;
 }

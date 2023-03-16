@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __SRC__ . "/controllers/App.controller.php";
 
 $is_logged = App::check_auth();
@@ -27,7 +26,11 @@ $is_logged = App::check_auth();
 		</div>
 		<?php if ($is_logged) : ?>
 			<div class="wrapper">
-				<a href="/me" class="link-button">Minhas informações</a>
+				<?php if (App::get_req_uri() != '/app') : ?>
+					<a href="/app" class="link-button">Voltar à aplicação</a>
+				<?php else : ?>
+					<a href="/me" class="link-button">Minhas informações</a>
+				<?php endif; ?>
 				<a href="/user/logout" class="link-button">Sair</a>
 			</div>
 		<?php endif; ?>

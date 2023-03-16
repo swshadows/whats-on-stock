@@ -30,3 +30,12 @@ const confirmFormSend = (form, event) => {
 		form.submit();
 	}
 };
+
+// Esconde o componente de mensagem
+const messageComponent = document.querySelector(".message");
+if (messageComponent) {
+	setTimeout(() => {
+		messageComponent.classList.add("message-hidden");
+		setTimeout(() => messageComponent.remove(), 1000);
+	}, 3000);
+}

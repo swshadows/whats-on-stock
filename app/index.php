@@ -11,4 +11,6 @@ require_once __SRC__ . '/routes/routes.php';
 
 $render = Router::route($_SERVER['REQUEST_URI']);
 
+session_start();
+
 require_once __SRC__ . $render;

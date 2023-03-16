@@ -30,8 +30,8 @@ if ($is_logged) {
 			</label>
 			<input type="submit" value="Atualizar senha">
 		</form>
-		<form onsubmit="confirmFormSend(this, event)" action="/user/delete" method="POST">
-			<input type="submit" value="Deletar conta">
+		<form onsubmit="confirmFormSend(this, event)" action="/user/delete" method="POST" class="update-me-form">
+			<input type="submit" class="account-delete" value="Deletar conta">
 		</form>
 	</div>
 </main>

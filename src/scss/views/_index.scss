@@ -1,0 +1,35 @@
+.app__divider {
+	margin: 0 auto 230px;
+	@include mobile() {
+		margin: 0;
+	}
+	width: 50%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	.divider__item:first-child {
+		border-right: 1px solid black;
+	}
+	.divider__item {
+		height: 300px;
+		padding: 5rem 1rem;
+		animation: 0.7s ease-in-out transcale 1;
+	}
+	.divider__item form {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		label {
+			width: fit-content;
+		}
+	}
+	.switcher {
+		margin-top: 10px;
+		a {
+			color: $link_color_dark;
+			&:visited {
+				color: $link_color_dark;
+			}
+		}
+	}
+}

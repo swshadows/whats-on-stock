@@ -6,9 +6,4 @@
 	<div class="message <?= $message['type'] ?>">
 		<?= $message['string'] ?>
 	</div>
-	<script>
-		setTimeout(() => {
-			document.querySelector('.message').classList.add("message-hidden");
-		}, 3000);
-	</script>
 <?php endif; ?>

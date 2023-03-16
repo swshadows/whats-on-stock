@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 class App
 {
@@ -18,6 +17,13 @@ class App
 	{
 		header("Location: $to");
 		exit;
+	}
+
+	// Retorna o REQUEST_URI formatado
+	public static function get_req_uri()
+	{
+		$format = explode("?", $_SERVER['REQUEST_URI']);
+		return $format[0];
 	}
 
 	// Seta uma mensagem temporária na sessão
