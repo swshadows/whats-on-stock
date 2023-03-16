@@ -10,7 +10,7 @@ class UserDAO
 
 	public function __construct()
 	{
-		$conn = new PDOConnection();
+		$conn = new PDOConnection(__ROOT__ . "/.env");
 		$this->connection = $conn->connect();
 	}
 

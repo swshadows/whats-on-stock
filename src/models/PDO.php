@@ -7,9 +7,9 @@ class PDOConnection
 	private string $host;
 	private string $db_name;
 
-	public function __construct()
+	public function __construct($env_path)
 	{
-		$env = parse_ini_file(__ROOT__ . "/.env");
+		$env = parse_ini_file($env_path);
 		$this->user = $env["USERNAME"];
 		$this->password = $env["PASSWORD"];
 		$this->host = $env["HOST"];

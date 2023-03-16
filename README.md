@@ -2,10 +2,9 @@
 
 > 📦 Aplicação para gerenciamento de estoque, criada como projeto para matéria da faculdade
 
-<!-- OPTIONAL ICON
 <div align="center">
-    <img width=200 src="./public/favicon.png">
-</div> -->
+    <img width=200 src="./app/favicon.ico">
+</div>
 
 ## Inicialização
 
@@ -24,10 +23,6 @@
 	cd whats-on-stock
 ```
 
-- Insira o banco de dados em [/src/database/init.sql](/src/database/init.sql)
-- Renomeie o arquivo `_.env` para `.env` e siga as instruções comentadas
-- Inicie a aplicação com o comando abaixo
-
-```bash
-	php -S localhost:3000 -t ./app
-```
+- Execute a aplicação com o comando `php run.php`
+  - Caso seja a primeira vez rodando, escolha a opção 0 e siga os passos indicados para inicializar a aplicação completamente
+  - Escolha a opção desejada no terminal
