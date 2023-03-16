@@ -1,14 +1,14 @@
 // Troca um HTMLDOMNode por outro.
 const switchNodes = (nodeId, otherNodeId) => {
-	document.getElementById(nodeId).classList.toggle("hidden");
-	document.getElementById(otherNodeId).classList.toggle("hidden");
+	document.querySelector(`#${nodeId}`).classList.toggle("hidden");
+	document.querySelector(`#${otherNodeId}`).classList.toggle("hidden");
 };
 
 // Troca tipos password por text
 const switchPasswordInputs = (...inputIds) => {
 	if (inputIds) {
 		inputIds.forEach((inputId) => {
-			const input = document.getElementById(inputId);
+			const input = document.querySelector(`#${inputId}`);
 			change(input);
 		});
 	}
@@ -43,6 +43,5 @@ if (messageComponent) {
 // Esconde ou mostra modal
 const toggleModal = (modalId) => {
 	const modal = document.querySelector(`#${modalId}`);
-	console.log(modal);
 	modal.classList.toggle("hidden");
 };

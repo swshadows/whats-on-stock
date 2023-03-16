@@ -13,3 +13,4 @@ Router::register('/user/login', '/controllers/User.login.php');
 Router::register('/user/logout', '/controllers/User.logout.php');
 
 Router::register('/item/add', '/controllers/Item.add.php');
+Router::register('/item/delete', '/controllers/Item.delete.php');

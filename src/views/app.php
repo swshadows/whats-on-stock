@@ -49,7 +49,8 @@ $arr = $item_dao->find_all();
 						<button class="close-modal" onclick="toggleModal('modal-del-<?= $i['id'] ?>')">❌</button>
 						<p>Deseja realmente apagar o item <?= $i['name'] ?>?</p>
 						<p>Essa ação é irreversivel!</p>
-						<form>
+						<form action="/item/delete" method="POST">
+							<input type="hidden" name="id" value="<?= $i['id'] ?>">
 							<input type="submit" class="item-delete-button" value="Deletar item">
 						</form>
 					</div>

@@ -86,6 +86,13 @@ class Message
 		$this->message = "✅ Item adicionado com sucesso";
 	}
 
+	// Item deletado com sucesso
+	public function delete_item_success()
+	{
+		$this->type = $this->type_arr[1];
+		$this->message = "✅ Item deletado com sucesso";
+	}
+
 	// Login bem sucedido
 	public function login_success()
 	{
