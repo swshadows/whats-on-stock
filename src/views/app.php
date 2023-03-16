@@ -24,6 +24,7 @@ $arr = [
 <main class="app">
 	<h1 class="app-title">Meu estoque</h1>
 	<div class="app-stock">
+		<?php require_once __SRC__ . "/views/components/add_item_modal.php"; ?>
 		<?php if (sizeof($arr) > 0) : ?>
 			<div class="stock-item">
 				<p>ID</p>
@@ -44,8 +45,8 @@ $arr = [
 						<button class="del-button" onclick="toggleModal('modal-del-<?= $i['id'] ?>')"><i class="fa-solid fa-trash"></i></button>
 					</p>
 				</div>
-				<div class="del-modal hidden" id="modal-del-<?= $i['id'] ?>">
-					<div class="edit-modal-block">
+				<div class="app-modal hidden" id="modal-del-<?= $i['id'] ?>">
+					<div class="app-modal-block">
 						<button class="close-modal" onclick="toggleModal('modal-del-<?= $i['id'] ?>')"><i class="fa-solid fa-x"></i></button>
 						<p>Deseja realmente apagar o item <?= $i['name'] ?>?</p>
 						<p>Essa ação é irreversivel!</p>
@@ -54,8 +55,8 @@ $arr = [
 						</form>
 					</div>
 				</div>
-				<div class="edit-modal hidden" id="modal-<?= $i['id'] ?>">
-					<div class="edit-modal-block">
+				<div class="app-modal hidden" id="modal-<?= $i['id'] ?>">
+					<div class="app-modal-block">
 						<button class="close-modal" onclick="toggleModal('modal-<?= $i['id'] ?>')"><i class="fa-solid fa-x"></i></button>
 						<form>
 							<label>Editar nome:</label>

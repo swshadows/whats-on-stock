@@ -46,6 +46,13 @@
 	position: fixed;
 	top: 0;
 	left: 0;
+	.add-item-button {
+		background-color: #009c60;
+		color: $white-color;
+		&:hover {
+			background-color: #009c60;
+		}
+	}
 }
 
 .app {

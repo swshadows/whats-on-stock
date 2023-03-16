@@ -1,6 +1,5 @@
 <?php
 require_once __SRC__ . "/controllers/App.controller.php";
-
 $is_logged = App::check_auth();
 
 ?>
@@ -30,6 +29,7 @@ $is_logged = App::check_auth();
 				<?php if (App::get_req_uri() != '/app') : ?>
 					<a href="/app" class="link-button">Voltar à aplicação</a>
 				<?php else : ?>
+					<a href="#" class="link-button add-item-button" onclick="toggleModal('add-item-modal')">Adicionar novo item</a>
 					<a href="/me" class="link-button">Minhas informações</a>
 				<?php endif; ?>
 				<a href="/user/logout" class="link-button">Sair</a>
