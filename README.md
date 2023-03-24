@@ -26,3 +26,8 @@
 - Execute a aplicação com o comando `php run.php`
   - Caso seja a primeira vez rodando, escolha a opção 0 e siga os passos indicados para inicializar a aplicação completamente
   - Escolha a opção desejada no terminal
+
+### Documentação
+
+- [DOCUMENTATION.md](DOCUMENTATION.md)
+<!--TODO: Adicionar PDF do relatório -->
