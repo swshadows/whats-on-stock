@@ -2,8 +2,6 @@
 
 ## Equipe
 
----
-
 A equipe foi subdividida em vários setores para facilitar tanto o desenvolvimento da aplicação, quanto as requsições do orientador
 
 | Nome            | Função          |
@@ -15,15 +13,11 @@ A equipe foi subdividida em vários setores para facilitar tanto o desenvolvimen
 
 ## Objetivo do Projeto
 
----
-
 O projeto **What's on Stock** foi construido como projeto final da matéria de Desenvolvimento de Software durante a realização da mesma, durante o 7º Periodo do cursos de Sistemas da Informação
 
 A aplicação tem como objetivo a gerência de itens em estoque com separação por usuário utilizando do ecossistema Web para a realização das suas funções
 
 ## Tecnologias Utilizadas
-
----
 
 ### PHP
 

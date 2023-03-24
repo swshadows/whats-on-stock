@@ -18,10 +18,10 @@
 
 - Use os comandos para clonar o repositório
 
-```bash
-	git clone https://github.com/swshadows/whats-on-stock.git
-	cd whats-on-stock
-```
+  ```bash
+  git clone https://github.com/swshadows/whats-on-stock.git
+  cd whats-on-stock
+  ```
 
 - Execute a aplicação com o comando `php run.php`
   - Caso seja a primeira vez rodando, escolha a opção 0 e siga os passos indicados para inicializar a aplicação completamente
