@@ -6,8 +6,7 @@ $message = new Message();
 
 // Checa se o usuário está realmente logado
 if (!App::check_auth()) {
-	$message->not_auth();
-	App::set_message($message, "/");
+	App::set_message(new Message(MessagePatterns::NotLogged), "/");
 }
 
 $user = new User($_POST['email'], "");

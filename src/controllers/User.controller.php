@@ -1,19 +1,15 @@
 <?php
 require 'App.controller.php';
 require __SRC__ . '/models/UserDAO.php';
-require __SRC__ . '/utils/messages.php';
+require __SRC__ . '/utils/Message.php';
 
 class UserController
 {
-	private Message $msg;
 	private User $user;
-	private UserDAO $user_dao;
 
-	public function __construct(Message $msg, User $user)
+	public function __construct(User $user)
 	{
-		$this->msg = $msg;
 		$this->user = $user;
-		$this->user_dao = new UserDAO();
 	}
 
 	// Realiza o login
@@ -21,42 +17,38 @@ class UserController
 	{
 		// Valida o formato do email
 		if (!$this->user->validate_email()) {
-			$this->msg->email_invalid();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::InvalidEmail), "/");
 		}
 
+		$user_dao = new UserDAO();
+
 		// Confere se o email está registrado
-		$user_saved = $this->user_dao->find_by_email($this->user->get_email());
+		$user_saved = $user_dao->find_by_email($this->user->get_email());
 		if (!$user_saved) {
-			$this->msg->email_dont_exist();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::EmailDontExist), "/");
 		}
 
 		// Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
 		if (!$this->user->check_password_safe()) {
-			$this->msg->password_pattern_wrong();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::WrongPasswordPattern), "/");
 		}
 
 		// Confere se a senha digitada e a salva são iguais
 		if (!$this->user->dehash_password($user_saved['password'])) {
-			$this->msg->passwords_dont_match();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::PasswordsDontMatch), "/");
 		}
 
-		$user_formatted = $this->user_dao->find_by_email($this->user->get_email());
+		$user_formatted = $user_dao->find_by_email($this->user->get_email());
 		$_SESSION['LOGIN'] = ['id' => $user_formatted['id'], 'email' => $user_formatted['email']];
 
-		$this->msg->login_success();
-		App::set_message($this->msg, "/app");
+		App::set_message(new Message(MessagePatterns::LoginSuccess), "/app");
 	}
 
 	// Realiza o logoout
 	public function logout()
 	{
 		unset($_SESSION['LOGIN']);
-		$this->msg->logout_success();
-		App::set_message($this->msg, "/");
+		App::set_message(new Message(MessagePatterns::LogoutSuccess), "/");
 	}
 
 	// Cria um usuário no banco de dados
@@ -64,36 +56,33 @@ class UserController
 	{
 		// Compara se as senhas enviadas são iguais
 		if (!$this->user->compare_passwords($password_repeat)) {
-			$this->msg->diff_passwords();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::DiffPasswords), "/");
 		}
 
 		// Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
 		if (!$this->user->check_password_safe()) {
-			$this->msg->password_pattern_wrong();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::WrongPasswordPattern), "/");
 		}
 
 		// Valida o formato do email
 		if (!$this->user->validate_email()) {
-			$this->msg->email_invalid();
-			App::set_message($this->msg, "/");
+			App::set_message(new Message(MessagePatterns::InvalidEmail), "/");
 		}
 
+		$user_dao = new UserDAO();
+
 		// Checa se o usuário já está registrado
-		if ($this->user_dao->find_by_email($this->user->get_email())) {
-			$this->msg->email_already_exists();
-			App::set_message($this->msg, "/");
+		if ($user_dao->find_by_email($this->user->get_email())) {
+			App::set_message(new Message(MessagePatterns::EmailExists), "/");
 		}
 
 		// Aplica hash na senha
 		$this->user->set_password_hash();
 
 		// Cria usuário no banco de dados
-		$this->user_dao->create($this->user);
+		$user_dao->create($this->user);
 
-		$this->msg->register_success();
-		App::set_message($this->msg, "/");
+		App::set_message(new Message(MessagePatterns::UserCreated), "/");
 	}
 
 	// Atualiza somente o email
@@ -102,21 +91,20 @@ class UserController
 
 		// Valida o formato do email
 		if (!$this->user->validate_email()) {
-			$this->msg->email_invalid();
-			App::set_message($this->msg, "/me");
+			App::set_message(new Message(MessagePatterns::InvalidEmail), "/me");
 		}
+
+		$user_dao = new UserDAO();
 
 		// Checa se o email já está em uso
-		if ($this->user_dao->find_by_email($this->user->get_email())) {
-			$this->msg->email_already_exists();
-			App::set_message($this->msg, "/me");
+		if ($user_dao->find_by_email($this->user->get_email())) {
+			App::set_message(new Message(MessagePatterns::EmailExists), "/me");
 		}
 
-		$this->user_dao->update_email($_SESSION['LOGIN']['email'], $this->user->get_email());
+		$user_dao->update_email($_SESSION['LOGIN']['email'], $this->user->get_email());
 		$_SESSION['LOGIN']['email'] = $this->user->get_email();
 
-		$this->msg->email_update_success();
-		App::set_message($this->msg, "/me");
+		App::set_message(new Message(MessagePatterns::UserEmailUpdated), "/me");
 	}
 
 	// Atualiza somente a senha
@@ -124,39 +112,38 @@ class UserController
 	{
 		// Compara se as senhas enviadas são iguais
 		if (!$usr_w_new_pass->compare_passwords($password_new_repeat)) {
-			$this->msg->diff_passwords();
-			App::set_message($this->msg, "/me");
+			App::set_message(new Message(MessagePatterns::DiffPasswords), "/me");
 		}
 
 		// Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
 		if (!$usr_w_new_pass->check_password_safe()) {
-			$this->msg->password_pattern_wrong();
-			App::set_message($this->msg, "/me");
+			App::set_message(new Message(MessagePatterns::WrongPasswordPattern), "/me");
 		}
 
-		$user_saved = $this->user_dao->find_by_email($this->user->get_email());
+		$user_dao = new UserDAO();
+
+		$user_saved = $user_dao->find_by_email($this->user->get_email());
 
 		// Confere se a senha digitada e a salva são iguais
 		if (!$this->user->dehash_password($user_saved['password'])) {
-			$this->msg->passwords_dont_match();
-			App::set_message($this->msg, "/me");
+			App::set_message(new Message(MessagePatterns::PasswordsDontMatch), "/me");
 		}
 
 		// Aplica hash na senha
 		$usr_w_new_pass->set_password_hash();
-		$this->user_dao->update_password($this->user->get_email(), $usr_w_new_pass->get_password());
+		$user_dao->update_password($this->user->get_email(), $usr_w_new_pass->get_password());
 
-		$this->msg->password_update_success();
-		App::set_message($this->msg, "/me");
+		App::set_message(new Message(MessagePatterns::UserPasswordUpdated), "/me");
 	}
 
 	// Apaga o usuário e relações do banco
 	public function deleteUser()
 	{
-		$this->user_dao->delete($this->user->get_email());
+		$user_dao = new UserDAO();
+
+		$user_dao->delete($this->user->get_email());
 		unset($_SESSION['LOGIN']);
 
-		$this->msg->user_delete_success();
-		App::set_message($this->msg, "/");
+		App::set_message(new Message(MessagePatterns::UserDeleted), "/");
 	}
 }

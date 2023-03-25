@@ -3,13 +3,10 @@ require_once "templates/header.php";
 require_once 'components/message.php';
 
 require_once __SRC__ . "/controllers/App.controller.php";
-require_once __SRC__ . "/utils/messages.php";
-
-$msg = new Message();
+require_once __SRC__ . "/utils/Message.php";
 
 if (!App::check_auth()) {
-	$msg->not_auth();
-	App::set_message($msg, "/");
+	App::set_message(new Message(MessagePatterns::NotLogged), "/");
 }
 ?>
 

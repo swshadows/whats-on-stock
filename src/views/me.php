@@ -10,10 +10,8 @@ if ($is_logged) {
 	$user_dao = new UserDAO();
 	$user = $user_dao->find_by_email($_SESSION['LOGIN']['email']);
 } else {
-	require_once __SRC__ . "/utils/messages.php";
-	$msg = new Message();
-	$msg->not_auth();
-	App::set_message($msg, "/");
+	require_once __SRC__ . "/utils/Message.php";
+	App::set_message(new Message(MessagePatterns::NotLogged), "/");
 }
 ?>
 

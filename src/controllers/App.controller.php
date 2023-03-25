@@ -5,10 +5,8 @@ class App
 	// Não permite acesso direto a arquivos de request
 	public static function forbid_access($redirect)
 	{
-		$message = new Message();
 		if (!$_POST) {
-			$message->forbidden();
-			App::set_message($message, $redirect);
+			self::set_message(new Message(MessagePatterns::Forbidden), $redirect);
 		}
 	}
 	// Checa se o usuário está autenticado
