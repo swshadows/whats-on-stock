@@ -42,6 +42,7 @@ if ($is_logged) {
 				<p>Deseja realmente apagar o sua conta?</p>
 				<p>Essa ação é irreversivel!</p>
 				<form action="/user/delete" method="POST">
+					<input type="hidden" name="placeholder" value="1">
 					<input type="submit" class="account-delete" value="Deletar conta">
 				</form>
 			</div>

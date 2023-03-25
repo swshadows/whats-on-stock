@@ -17,6 +17,13 @@ class Message
 		return $this->message;
 	}
 
+	// Forbidden
+	public function forbidden()
+	{
+		$this->type = $this->type_arr[0];
+		$this->message = "❌ Não é permitido acessar esse endereço diretamente";
+	}
+
 	// Usuário não logado
 	public function not_auth()
 	{
@@ -72,11 +79,11 @@ class Message
 		$this->message = "❌ Nome do item está vazio";
 	}
 
-	// Quantidade do item vazio
+	// Quantidade do item vazio ou inválido
 	public function item_qty_empty()
 	{
 		$this->type = $this->type_arr[0];
-		$this->message = "❌ Quantidade do item está vazio";
+		$this->message = "❌ Quantidade do item está vazio ou é inválida";
 	}
 
 	// Item adicionado com sucesso

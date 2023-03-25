@@ -2,6 +2,15 @@
 
 class App
 {
+	// Não permite acesso direto a arquivos de request
+	public static function forbid_access($redirect)
+	{
+		$message = new Message();
+		if (!$_POST) {
+			$message->forbidden();
+			App::set_message($message, $redirect);
+		}
+	}
 	// Checa se o usuário está autenticado
 	public static function check_auth()
 	{
