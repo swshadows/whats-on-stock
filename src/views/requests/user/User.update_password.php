@@ -11,5 +11,5 @@ if (!App::check_auth()) {
 $user = new User($_SESSION['LOGIN']['email'], $_POST['password']);
 $user_new = new User($_SESSION['LOGIN']['email'], $_POST['password-new']);
 
-$controller = new UserController($message, $user);
+$controller = new UserController($user);
 $controller->updatePassword($user_new, $_POST['password-new-repeat']);

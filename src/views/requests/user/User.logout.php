@@ -1,7 +1,6 @@
 <?php
 require_once __SRC__ . "/controllers/User.controller.php";
 
-
 // Checa se o usuário está realmente logado
 if (!App::check_auth()) {
 	App::set_message(new Message(MessagePatterns::NotLogged), "/");

@@ -7,5 +7,5 @@ if (!App::check_auth()) {
 	App::set_message(new Message(MessagePatterns::NotLogged), "/");
 }
 
-$controller = new UserController(new User("", ""));
+$controller = new UserController(new User($_SESSION['LOGIN']['email'], ""));
 $controller->deleteUser();
