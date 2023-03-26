@@ -28,9 +28,10 @@ class UserController
 			App::set_message(new Message(MessagePatterns::EmailDontExist), "/");
 		}
 
-		// Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
-		if (!$this->user->check_password_safe()) {
-			App::set_message(new Message(MessagePatterns::WrongPasswordPattern), "/");
+		// Checa se a senha enviada é segura
+		$password_status = $this->user->check_password_safe();
+		if ($password_status !== true) {
+			App::set_message(new Message($password_status), "/");
 		}
 
 		// Confere se a senha digitada e a salva são iguais
@@ -59,9 +60,10 @@ class UserController
 			App::set_message(new Message(MessagePatterns::DiffPasswords), "/");
 		}
 
-		// Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
-		if (!$this->user->check_password_safe()) {
-			App::set_message(new Message(MessagePatterns::WrongPasswordPattern), "/");
+		// Checa se a senha enviada é segura
+		$password_status = $this->user->check_password_safe();
+		if ($password_status !== true) {
+			App::set_message(new Message($password_status), "/");
 		}
 
 		// Valida o formato do email
@@ -115,9 +117,10 @@ class UserController
 			App::set_message(new Message(MessagePatterns::DiffPasswords), "/me");
 		}
 
-		// Vê se a senha tem mais que 8 caracteres e menos que 255 caracteres
-		if (!$usr_w_new_pass->check_password_safe()) {
-			App::set_message(new Message(MessagePatterns::WrongPasswordPattern), "/me");
+		// Checa se a senha enviada é segura
+		$password_status = $this->user->check_password_safe();
+		if ($password_status !== true) {
+			App::set_message(new Message($password_status), "/");
 		}
 
 		$user_dao = new UserDAO();

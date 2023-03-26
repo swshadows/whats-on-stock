@@ -8,7 +8,11 @@ enum MessagePatterns: string
 		// Mensagens de usuário
 	case NotLogged = "❌ Você ainda não fez login";
 	case DiffPasswords = "❌ Senhas não são iguais, tente novamente";
-	case WrongPasswordPattern = "❌ A senha deve conter de 8 a 255 caracteres";
+	case PasswordSizeInvalid = "❌ A senha deve conter entre 8 a 255 caracteres";
+	case PasswordHasNoNumber = "❌ A senha deve conter pelo menos 1 numero";
+	case PasswordHasNoUppercase = "❌ A senha deve conter pelo menos 1 letra maiuscula";
+	case PasswordHasNoLowercase = "❌ A senha deve conter pelo menos 1 letra minuscula";
+	case PasswordHasNoSymbol = "❌ A senha deve conter pelo menos 1 simbolo";
 	case InvalidEmail = "❌ O email enviado é inválido";
 	case EmailExists = "❌ Esse e-mail já está registrado";
 	case EmailDontExist = "❌ E-mail não encontrado";

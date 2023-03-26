@@ -67,14 +67,35 @@ class User
 		return false;
 	}
 
-	// Checa se a senha é maior que 8 caracteres e menor que 255 caracteres
+	// Checa se a senha é segura
 	public function check_password_safe()
 	{
 		$password_size = strlen($this->password);
-		if ($password_size >= 8 && $password_size <= 255) {
-			return true;
-		} else {
-			return false;
+		// Checa se a senha é maior que 8 e menor que 255 caracteres
+		if (!($password_size >= 8) || !($password_size <= 255)) {
+			return MessagePatterns::PasswordSizeInvalid;
 		}
+
+		// Checa se a senha contem pelo menos um número
+		if (!preg_match("#[0-9]+#", $this->password)) {
+			return MessagePatterns::PasswordHasNoNumber;
+		}
+
+		// Checa se a senha contem pelo menos uma letra maiuscula
+		if (!preg_match("#[A-Z]+#", $this->password)) {
+			return MessagePatterns::PasswordHasNoUppercase;
+		}
+
+		// Checa se a senha contem pelo menos uma letra minuscula
+		if (!preg_match("#[a-z]+#", $this->password)) {
+			return MessagePatterns::PasswordHasNoLowercase;
+		}
+
+		// Checa se a senha contem pelo menos um simbolo
+		if (!preg_match("#[\ \!\"\#\$\%\&\'\(\)\*\+\,-\.\\\/\:\;\<\=\>\?\@\[\]\^\_\`\{\|\}\~]+#", $this->password)) {
+			return MessagePatterns::PasswordHasNoSymbol;
+		}
+
+		return true;
 	}
 }

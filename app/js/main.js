@@ -36,7 +36,7 @@ const messageComponent = document.querySelector(".message");
 if (messageComponent) {
 	setTimeout(() => {
 		messageComponent.classList.add("message-hidden");
-		setTimeout(() => messageComponent.remove(), 1000);
+		setTimeout(() => messageComponent.remove(), 400);
 	}, 3000);
 }
 
