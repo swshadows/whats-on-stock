@@ -92,7 +92,7 @@ class User
 		}
 
 		// Checa se a senha contem pelo menos um simbolo
-		if (!preg_match("#[\ \!\"\#\$\%\&\'\(\)\*\+\,-\.\\\/\:\;\<\=\>\?\@\[\]\^\_\`\{\|\}\~]+#", $this->password)) {
+		if (!preg_match("#[\ \!\"\#\$\%\&\'\(\)\*\+\,\-\.\\\/\:\;\<\=\>\?\@\[\]\^\_\`\{\|\}\~]+#", $this->password)) {
 			return MessagePatterns::PasswordHasNoSymbol;
 		}
 
