@@ -24,9 +24,21 @@ class ItemDAO
 		$sttm->execute();
 	}
 
+	public function find_one(Item $item)
+	{
+		$query = "SELECT * FROM items WHERE user_id = :id AND name = :name";
+		$sttm = $this->connection->prepare($query);
+		$sttm->bindValue(':id', $_SESSION['LOGIN']['id']);
+		$sttm->bindValue(':name', $item->get_name());
+		$sttm->execute();
+		$data = $sttm->fetch(PDO::FETCH_ASSOC);
+
+		return $data;
+	}
+
 	public function find_all()
 	{
-		$query = "SELECT * FROM items WHERE user_id = :id";
+		$query = "SELECT * FROM items WHERE user_id = :id ORDER BY name ASC";
 		$stmt = $this->connection->prepare($query);
 		$stmt->bindValue(":id", $_SESSION['LOGIN']['id']);
 		$stmt->execute();

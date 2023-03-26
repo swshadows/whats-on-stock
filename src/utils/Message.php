@@ -25,6 +25,7 @@ enum MessagePatterns: string
 	case UserDeleted = "✅ Conta deletada com sucesso! Você foi redirecionado";
 		// Mensagens de item
 	case ItemNameEmpty = "❌ Nome do item está vazio";
+	case ItemExists = "❌ Item com este nome já existe";
 	case ItemQtyEmpty = "❌ Quantidade do item está vazio ou é inválida";
 	case ItemAdded = "✅ Item adicionado com sucesso";
 	case ItemUpdated = "✅ Item atualizado com sucesso";

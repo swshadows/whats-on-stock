@@ -26,6 +26,12 @@ class ItemController
 		}
 
 		$item_dao = new ItemDAO();
+
+		// Checa se o item de mesmo nome já foi adicionado
+		if ($item_dao->find_one($this->item)) {
+			App::set_message(new Message(MessagePatterns::ItemExists), "/app");
+		}
+
 		$item_dao->create($this->item);
 
 		App::set_message(new Message(MessagePatterns::ItemAdded), "/app");
@@ -40,6 +46,11 @@ class ItemController
 		}
 
 		$item_dao = new ItemDAO();
+
+		// Checa se o item de mesmo nome já foi adicionado
+		if ($item_dao->find_one($this->item)) {
+			App::set_message(new Message(MessagePatterns::ItemExists), "/app");
+		}
 
 		// Checa se o usuário logado é o dono do item
 		if (!$item_dao->check_owner($item_id)) {

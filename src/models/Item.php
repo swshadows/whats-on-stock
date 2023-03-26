@@ -14,7 +14,7 @@ class Item
 	// Getters
 	public function get_name()
 	{
-		return $this->name;
+		return ucwords($this->name);
 	}
 	public function get_qty()
 	{
