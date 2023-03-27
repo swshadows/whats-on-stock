@@ -53,4 +53,21 @@
 			}
 		}
 	}
+	.exports {
+		margin-top: 10px;
+		display: flex;
+		gap: 40px;
+		justify-content: center;
+		a {
+			background-color: $app_color;
+			padding: 0.3rem 0.6rem;
+			color: $white_color;
+			text-decoration: none;
+			transition: 0.3s all;
+			&:hover {
+				text-decoration: underline;
+				background-color: $app_color_gradient;
+			}
+		}
+	}
 }

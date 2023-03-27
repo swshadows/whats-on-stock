@@ -16,3 +16,6 @@ Router::register('/item/add', '/views/requests/item/Item.add.php');
 Router::register('/item/update_name', '/views/requests/item/Item.update_name.php');
 Router::register('/item/update_qty', '/views/requests/item/Item.update_qty.php');
 Router::register('/item/delete', '/views/requests/item/Item.delete.php');
+
+Router::register('/export/json', '/views/exports/json.php');
+Router::register('/export/pdf', '/views/exports/pdf.php');

@@ -51,6 +51,10 @@ $arr = $item_dao->find_all();
 			</div>
 		</div>
 	<?php endforeach; ?>
+	<div class="exports">
+		<a target="_blank" href="/export/json">Exportar JSON</a>
+		<a target="_blank" href="/export/pdf">Imprimir/Exportar PDF</a>
+	</div>
 <?php else : ?>
 	<div class="no-item">Não existem itens registrados</div>
 <?php endif; ?>
